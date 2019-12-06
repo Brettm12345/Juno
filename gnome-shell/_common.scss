@@ -129,7 +129,7 @@ StScrollBar {
   -barlevel-active-background-color: $cyan;
   -barlevel-active-border-color: $lime;
   -barlevel-border-width: 0;
-  -barlevel-handle-radius: 6px; 
+  -barlevel-handle-radius: 6px;
   -barlevel-overdrive-color: $cyan;
   -barlevel-overdrive-border-color: transparent;
   -barlevel-overdrive-separator-width: 0px;
@@ -519,7 +519,7 @@ StScrollBar {
   color: $fg_color;
   .popup-menu-arrow { } //defined globally in the TOP BAR
   .popup-sub-menu {
-   
+
     background-color:  transparentize(darken($main_dark,57%), 0.8);
     box-shadow: $depth6;
   }
@@ -615,7 +615,7 @@ StScrollBar {
     -barlevel-background-color: transparentize(darken($main_dark,15%),0.5);
     -barlevel-active-background-color: $selected_bg_color;
     -barlevel-overdrive-color: $red;
-    -barlevel-overdrive-separator-width: 0.2em; 
+    -barlevel-overdrive-separator-width: 0.2em;
   }
   .level-bar {
     background-color: $selected_bg_color;
@@ -1081,7 +1081,7 @@ StScrollBar {
         }
 
         .message {
-          &:hover,&:focus { 
+          &:hover,&:focus {
             background-color: darken($bg_color, 1%);
             box-shadow: 3px 0px 0px 0px $selected_bg_color inset;
            }
@@ -1110,7 +1110,7 @@ StScrollBar {
             /* HACK: the label should be baseline-aligned with a 1em label,
                      fake this with some bottom padding */
             padding-bottom: 0.13em;
-           
+
           }
 
           .message-secondary-bin > StIcon {
@@ -1119,7 +1119,7 @@ StScrollBar {
 
           .message-title {
             //color: darken($fg_color,5%);
-            
+
           }
 
           .message-content {
@@ -1179,7 +1179,7 @@ StScrollBar {
   .system-menu-action {
 
     color: $fg_color;
-   
+
     border-radius: 32px; /* wish we could do 50% */
     border: 1px solid $borders_color;
     background: darken($bg_color, 3%);
@@ -1192,7 +1192,7 @@ StScrollBar {
     }
     &:active {
        background-color: darken($selected_bg_color, 10%);
-       color: $selected_fg_color; 
+       color: $selected_fg_color;
        border: 1px solid darken($selected_bg_color, 10%);
       }
 
@@ -1449,7 +1449,7 @@ StScrollBar {
   .app-well-app.app-folder,
   .show-apps,
   .grid-search-result {
-    
+
     border: none;
     & .overview-icon {
       @extend %icon_tile;
@@ -1528,19 +1528,19 @@ StScrollBar {
       border: none;
     }
 
-    &:hover .page-indicator-icon {  
+    &:hover .page-indicator-icon {
       background-image: none;
-      background-color: rgba(255, 255, 255, 0.5); 
+      background-color: rgba(255, 255, 255, 0.5);
     }
-    &:active .page-indicator-icon { 
+    &:active .page-indicator-icon {
       background-image: none;
       background-color: rgba(255, 255, 255, 0.7);
       margin: 0;
     }
-    &:checked .page-indicator-icon{ 
+    &:checked .page-indicator-icon{
       background-image: none;
       background-color: #FFFFFF;
-      transition-duration: 0.3s; 
+      transition-duration: 0.3s;
       transition-timing-function: ease-in-out;
     }
   }

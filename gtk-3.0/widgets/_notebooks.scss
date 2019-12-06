@@ -1,31 +1,38 @@
 /*************
  * Notebooks *
  *************/
- notebook {
+notebook {
   > header {
     padding: 1px;
     border-color: $borders_color;
     border-width: 1px;
-    background-color: darken($base_color, 5%);
+    background-color: $bg_color;
 
     &:backdrop {
       border-color: $backdrop_borders_color;
       background-color: $backdrop_bg_color;
     }
 
-    tabs { margin: 0px; }
+    tabs {
+      color: $tab_incative_color;
+      margin: 0px;
+    }
 
     &.top {
       border-bottom-style: solid;
       > tabs {
         margin-bottom: -2px;
         > tab {
-
-          &:backdrop { box-shadow: none; }
+          &:backdrop {
+            box-shadow: none;
+          }
 
           &:checked {
+            color: $tab_active_color;
+            background-color: $base_color;
+            &:hover {
               background-color: $base_color;
-              &:hover{background-color: $base_color;}
+            }
           }
         }
       }
@@ -36,15 +43,14 @@
       > tabs {
         margin-top: -2px;
         > tab {
+          &:backdrop {
+            box-shadow: none;
+          }
 
-
-          &:backdrop { box-shadow: none; }
-
-          &:checked { 
-            background-color: $base_color; 
-            box-shadow: -1px 0 0 $borders_color,
-            0px 1px 0 $borders_color,
-            1px 0 0 $borders_color;
+          &:checked {
+            background-color: $base_color;
+            box-shadow: -1px 0 0 $borders_color, 0px 1px 0 $borders_color,
+              1px 0 0 $borders_color;
           }
         }
       }
@@ -55,15 +61,14 @@
       > tabs {
         margin-right: -2px;
         > tab {
+          &:backdrop {
+            box-shadow: none;
+          }
 
-
-          &:backdrop { box-shadow: none; }
-
-         &:checked { 
-            background-color: $base_color; 
-            box-shadow: 0px 1px 0 $borders_color,
-            0px -1px 0 $borders_color,
-            0px 1px 0 $borders_color;
+          &:checked {
+            background-color: $base_color;
+            box-shadow: 0px 1px 0 $borders_color, 0px -1px 0 $borders_color,
+              0px 1px 0 $borders_color;
           }
         }
       }
@@ -74,15 +79,14 @@
       > tabs {
         margin-left: -2px;
         > tab {
+          &:backdrop {
+            box-shadow: none;
+          }
 
-
-          &:backdrop { box-shadow: none; }
-
-          &:checked { 
-            background-color: $base_color; 
-            box-shadow: 0px 1px 0 $borders_color,
-            0px -1px 0 $borders_color,
-            1px 0 0 $borders_color;
+          &:checked {
+            background-color: $base_color;
+            box-shadow: 0px 1px 0 $borders_color, 0px -1px 0 $borders_color,
+              1px 0 0 $borders_color;
           }
         }
       }
@@ -106,9 +110,13 @@
       padding-left: 4px;
       padding-right: 4px;
 
-      &.down { -gtk-icon-source: -gtk-icontheme('pan-start-symbolic'); }
+      &.down {
+        -gtk-icon-source: -gtk-icontheme('pan-start-symbolic');
+      }
 
-      &.up { -gtk-icon-source: -gtk-icontheme('pan-end-symbolic'); }
+      &.up {
+        -gtk-icon-source: -gtk-icontheme('pan-end-symbolic');
+      }
     }
 
     &.left > tabs > arrow {
@@ -129,9 +137,13 @@
       padding-top: 4px;
       padding-bottom: 4px;
 
-      &.down { -gtk-icon-source: -gtk-icontheme('pan-up-symbolic'); }
+      &.down {
+        -gtk-icon-source: -gtk-icontheme('pan-up-symbolic');
+      }
 
-      &.up { -gtk-icon-source: -gtk-icontheme('pan-down-symbolic'); }
+      &.up {
+        -gtk-icon-source: -gtk-icontheme('pan-down-symbolic');
+      }
     }
 
     > tabs > arrow {
@@ -151,7 +163,9 @@
         box-shadow: none;
       }
 
-      &:disabled { @include button(undecorated); }
+      &:disabled {
+        @include button(undecorated);
+      }
     }
 
     tab {
@@ -164,7 +178,7 @@
       color: $insensitive_fg_color;
       font-weight: normal;
 
-      border-width: 1px;         // for reorderable tabs
+      border-width: 1px; // for reorderable tabs
       border-color: transparent; //
 
       &:hover {
@@ -186,25 +200,28 @@
 
       &:checked {
         color: $fg_color;
-        box-shadow: -1px 0 0 $borders_color,
-        0px -1px 0 $borders_color,
-        1px 0 0 $borders_color;
+        box-shadow: -1px 0 0 $borders_color, 0px -1px 0 $borders_color,
+          1px 0 0 $borders_color;
         &.reorderable-page {
           border-color: transparentize($borders_color, 0.5);
           background-color: transparentize($bg_color, 0.5);
 
-          &:hover { background-color: transparentize($bg_color, 0.3); }
+          &:hover {
+            background-color: transparentize($bg_color, 0.3);
+          }
         }
       }
-      &:hover, &:checked, &:backdrop:checked {
+      &:hover,
+      &:checked,
+      &:backdrop:checked {
         button.flat {
-          color: gtkalpha(currentColor, 0.3); 
+          color: gtkalpha(currentColor, 0.3);
         }
       }
 
       &:backdrop:checked {
         color: $backdrop_fg_color;
-        
+
         &.reorderable-page {
           border-color: $backdrop_borders_color;
           background-color: $backdrop_base_color;
@@ -213,12 +230,17 @@
 
       // colors the button like the label, overridden otherwise
       button.flat {
-        &:hover {  background: transparent; box-shadow: none; color: $red; }
+        &:hover {
+          background: transparent;
+          box-shadow: none;
+          color: $red;
+        }
 
-        &, &:backdrop {   
+        &,
+        &:backdrop {
           border: none;
           background: transparent;
-          color: gtkalpha(currentColor, 0); 
+          color: gtkalpha(currentColor, 0);
         }
 
         padding: 0;
@@ -252,15 +274,21 @@
           margin-left: 0.5px;
           margin-right: 0.5px;
 
-          &:first-child { margin-left: -1px; }
-          &:last-child { margin-right: -1px; }
+          &:first-child {
+            margin-left: -1px;
+          }
+          &:last-child {
+            margin-right: -1px;
+          }
         }
 
         tab {
           margin-left: 0.5px;
           margin-right: 0.5px;
 
-          &.reorderable-page { border-style: none solid; }
+          &.reorderable-page {
+            border-style: none solid;
+          }
         }
       }
     }
@@ -275,26 +303,39 @@
           margin-top: 3px;
           margin-bottom: 3px;
 
-          &:first-child { margin-top: -1px; }
-          &:last-child { margin-bottom: -1px; }
+          &:first-child {
+            margin-top: -1px;
+          }
+          &:last-child {
+            margin-bottom: -1px;
+          }
         }
 
         tab {
           margin-top: 4px;
           margin-bottom: 4px;
 
-          &.reorderable-page { border-style: solid none; }
+          &.reorderable-page {
+            border-style: solid none;
+          }
         }
       }
     }
 
-    &.top tab { padding-bottom: 1px; }
-    &.bottom tab { padding-top: 1px; }
+    &.top tab {
+      padding-bottom: 1px;
+    }
+    &.bottom tab {
+      padding-top: 1px;
+    }
   }
 
-  > stack:not(:only-child) { // the :not(:only-child) is for "hidden" notebooks
+  > stack:not(:only-child) {
+    // the :not(:only-child) is for "hidden" notebooks
     background-color: $base_color;
 
-    &:backdrop { background-color: $backdrop_base_color; }
+    &:backdrop {
+      background-color: $backdrop_base_color;
+    }
   }
 }

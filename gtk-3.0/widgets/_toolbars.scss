@@ -2,7 +2,7 @@
  * Toolbars *
  ************/
 %toolbar {
-  -GtkWidget-window-dragging: true;
+  -gtkwidget-window-dragging: true;
   padding: 4px;
   background-color: $bg_color;
 }
@@ -13,7 +13,9 @@ toolbar {
   padding: 4px 3px 3px 4px;
 
   // on OSD
-  .osd & { background-color: transparent; }
+  .osd & {
+    background-color: transparent;
+  }
 
   // stand-alone OSD toolbars
   &.osd {
@@ -25,12 +27,18 @@ toolbar {
     &.left,
     &.right,
     &.top,
-    &.bottom { border-radius: 0; } // positional classes for `attached` osd toolbars
+    &.bottom {
+      border-radius: 0;
+    } // positional classes for `attached` osd toolbars
   }
 
   // toolbar separators
-  &.horizontal separator { margin: 0 7px 1px 6px; }
-  &.vertical separator { margin: 6px 1px 7px 0; }
+  &.horizontal separator {
+    margin: 0 7px 1px 6px;
+  }
+  &.vertical separator {
+    margin: 6px 1px 7px 0;
+  }
 
   &:not(.inline-toolbar):not(.osd) {
     switch,
@@ -52,7 +60,7 @@ toolbar {
 
   padding: 3px;
   border-width: 0 1px 1px;
-  border-radius: 0  0 5px 5px;
+  border-radius: 0 0 5px 5px;
 }
 
 searchbar,
@@ -68,8 +76,7 @@ searchbar,
 %darkbar {
   border-style: solid;
   border-color: $borders_color;
-  $_bg: mix($bg_color, $borders_color, 70%);
-  background-color: $_bg;
+  background-color: $bg_color;
 
   &:backdrop {
     border-color: $backdrop_borders_color;
@@ -79,6 +86,6 @@ searchbar,
   }
 }
 
-searchbar{
+searchbar {
   background: $base_color;
 }
